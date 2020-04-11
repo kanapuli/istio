@@ -40,6 +40,9 @@ type FileFilter func(fileName string) bool
 
 // RandomString returns a random string of length n.
 func RandomString(n int) string {
+	//Todo: Ask the maintainers
+	//The function panics when the argument n < 0.
+	//Is it ok to return an empty string when n < 0
 	if n < 0 {
 		return ""
 	}
