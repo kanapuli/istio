@@ -40,6 +40,9 @@ type FileFilter func(fileName string) bool
 
 // RandomString returns a random string of length n.
 func RandomString(n int) string {
+	if n < 0 {
+		return ""
+	}
 	b := make([]rune, n)
 	for i := range b {
 		b[i] = letters[rand.Intn(len(letters))]

@@ -93,3 +93,34 @@ func TestParseValue(t *testing.T) {
 		})
 	}
 }
+
+func TestRandomString(t *testing.T) {
+	tests := []struct {
+		desc string
+		in   int
+		want int
+	}{
+		{
+			desc: "negative",
+			in:   -1,
+			want: 0,
+		},
+		{
+			desc: "zero",
+			in:   0,
+			want: 0,
+		},
+		{
+			desc: "ten",
+			in:   10,
+			want: 10,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.desc, func(t *testing.T) {
+			if got, want := len(RandomString(tt.in)), tt.want; !(got == want) {
+				t.Errorf("%s: got:%v, want:%v", tt.desc, got, want)
+			}
+		})
+	}
+}
